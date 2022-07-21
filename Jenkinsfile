@@ -23,10 +23,10 @@ pipeline {
         stage('sonar scan'){
             steps {
               
-			    sh "mvn clean verify sonar:sonar \
-                  -Dsonar.projectKey=dot-net-almutaywia \
-                  -Dsonar.host.url=http://54.226.50.200 \
-                  -Dsonar.login=sqp_5f67b5604d694e4862a1dd62c520ab1bdd04afd8"
+			    sh "dotnet tool install --global dotnet-sonarscanner"
+                sh 'dotnet sonarscanner begin /k:"dot-net-almutaywia" /d:sonar.host.url="http://54.226.50.200"  /d:sonar.login="sqp_5f67b5604d694e4862a1dd62c520ab1bdd04afd8"'
+                sh "dotnet build"
+                sh 'dotnet sonarscanner end /d:sonar.login="sqp_5f67b5604d694e4862a1dd62c520ab1bdd04afd8"'
 			  
             }
         }
