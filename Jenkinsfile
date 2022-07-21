@@ -23,10 +23,10 @@ pipeline {
         stage('sonar scan'){
             steps {
               
-			  sh 'mvn clean verify sonar:sonar \
-  -Dsonar.projectKey=almutaywia \
-  -Dsonar.host.url=http://54.226.50.200 \
-  -Dsonar.login=sqp_a90bc30ff7480dba3b87cbbfa433c4a079959fa5'
+			  sh "mvn clean verify sonar:sonar \
+                  -Dsonar.projectKey=dot-net-almutaywia \
+                  -Dsonar.host.url=http://54.226.50.200 \
+                  -Dsonar.login=sqp_5f67b5604d694e4862a1dd62c520ab1bdd04afd8"
 			  
             }
         }
